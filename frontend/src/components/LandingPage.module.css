@@ -179,6 +179,8 @@
 .content {
   max-width: 650px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .headline {
@@ -392,16 +394,16 @@
 
 .floatingIcon {
   position: absolute;
-  font-size: 2.2rem;
-  opacity: 0.15;
+  font-size: 2.8rem;
+  opacity: 0.22;
   animation: floatAround 30s linear infinite;
   filter: drop-shadow(0 0 8px rgba(58, 190, 255, 0.4));
 }
 
 @keyframes floatAround {
   0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-  33% { transform: translate(40px, -60px) rotate(120deg) scale(1.1); }
-  66% { transform: translate(-40px, 60px) rotate(240deg) scale(0.9); }
+  33% { transform: translate(80px, -100px) rotate(120deg) scale(1.1); }
+  66% { transform: translate(-80px, 100px) rotate(240deg) scale(0.9); }
   100% { transform: translate(0, 0) rotate(360deg) scale(1); }
 }
 
@@ -413,10 +415,18 @@
 .floatingIcon:nth-child(6) { top: 35%; right: 5%; animation-duration: 26s; animation-delay: -10s; }
 .floatingIcon:nth-child(7) { bottom: 45%; left: 20%; animation-duration: 38s; animation-delay: -15s; }
 .floatingIcon:nth-child(8) { top: 65%; right: 20%; animation-duration: 30s; animation-delay: -5s; }
+.floatingIcon:nth-child(9) { top: 10%; right: 35%; animation-duration: 33s; animation-delay: -2s; }
+.floatingIcon:nth-child(10) { bottom: 15%; left: 35%; animation-duration: 27s; animation-delay: -8s; }
+.floatingIcon:nth-child(11) { top: 55%; left: 25%; animation-duration: 36s; animation-delay: -14s; }
+.floatingIcon:nth-child(12) { top: 75%; right: 30%; animation-duration: 31s; animation-delay: -18s; }
+.floatingIcon:nth-child(13) { top: 25%; left: 40%; animation-duration: 24s; animation-delay: -4s; }
+.floatingIcon:nth-child(14) { bottom: 40%; right: 40%; animation-duration: 34s; animation-delay: -16s; }
+.floatingIcon:nth-child(15) { top: 5%; left: 50%; animation-duration: 29s; animation-delay: -10s; }
+.floatingIcon:nth-child(16) { bottom: 5%; right: 50%; animation-duration: 32s; animation-delay: -5s; }
 
 @media (max-width: 768px) {
   .floatingIcon {
-    font-size: 1.4rem;
-    opacity: 0.1;
+    font-size: 1.6rem;
+    opacity: 0.15;
   }
 }
