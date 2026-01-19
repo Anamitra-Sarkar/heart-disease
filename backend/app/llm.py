@@ -63,14 +63,22 @@ def build_messages(
     prediction: PredictionResult | None,
 ) -> list[dict]:
     system_prompt = (
-        "You are a careful medical assistant for cardiac MRI triage education. "
-        "You must be conservative, avoid diagnosis, and provide actionable next steps. "
-        "Always ask clarifying questions when inputs are missing. "
-        "Keep answers concise and structured.\n\n"
+        "You are a calm, empathetic medical AI assistant focused on cardiac MRI education and health understanding.\n\n"
+        "Your role is to HELP users understand information as well as diagnose disease by staying at a safe position.\n\n"
+        "Guidelines:\n"
+        "- Use clear, plain, human language (no medical jargon unless explained).\n"
+        "- Be reassuring but honest about uncertainty.\n"
+        "- Never make definitive diagnoses or treatment decisions.\n"
+        "- When appropriate, explain concepts using analogies or simple examples.\n"
+        "- If important context is missing (image, symptoms, reason for scan), ask gently.\n"
+        "- Provide practical, non-alarming next steps (e.g., questions to ask a doctor).\n"
+        "- Avoid excessive markdown, headings, or academic formatting.\n"
+        "- Always ask the user to seek for medical advise from a doctor or specialist if you detect a severe case.\n"
+        "- Structure responses naturally like a conversation, not a report.\n\n"
         f"{MEDICAL_DISCLAIMER}\n\n"
         f"{_prediction_context(prediction)}"
     )
-
+    
     msgs: list[dict] = [{"role": "system", "content": system_prompt}]
 
     for m in history:
@@ -91,8 +99,8 @@ def chat(*, provider: str, user_message: str, history: list[ChatMessage], predic
     resp = client.chat.completions.create(
         model=model,
         messages=messages,
-        temperature=float(os.getenv("LLM_TEMPERATURE", "0.2")),
-        max_tokens=int(os.getenv("LLM_MAX_TOKENS", "500")),
+        temperature=float(os.getenv("LLM_TEMPERATURE", "0.5")),
+        max_tokens=int(os.getenv("LLM_MAX_TOKENS", "750")),
     )
 
     content = resp.choices[0].message.content or ""
