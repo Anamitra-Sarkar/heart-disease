@@ -18,6 +18,14 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
         <div className={styles.floatingIcon}>🧬</div>
         <div className={styles.floatingIcon}>🌡️</div>
         <div className={styles.floatingIcon}>🩹</div>
+        <div className={styles.floatingIcon}>🧠</div>
+        <div className={styles.floatingIcon}>❤️</div>
+        <div className={styles.floatingIcon}>👨‍⚕️</div>
+        <div className={styles.floatingIcon}>👩‍⚕️</div>
+        <div className={styles.floatingIcon}>🔬</div>
+        <div className={styles.floatingIcon}>🔋</div>
+        <div className={styles.floatingIcon}>📡</div>
+        <div className={styles.floatingIcon}>🏥</div>
       </div>
 
       <div className={styles.robotContainer}>

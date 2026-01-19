@@ -48,14 +48,14 @@ export default function BackgroundHearts() {
       canvas.style.height = '100%';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const count = Math.max(16, Math.min(34, Math.floor(window.innerWidth / 42)));
+      const count = Math.max(30, Math.min(60, Math.floor(window.innerWidth / 25)));
       hearts = new Array(count).fill(null).map(() => ({
         x: rand(0, window.innerWidth),
         y: rand(0, window.innerHeight),
         vx: rand(-0.18, 0.18),
         vy: rand(-0.12, 0.16),
-        size: rand(10, 42),
-        opacity: rand(0.05, 0.16),
+        size: rand(15, 60),
+        opacity: rand(0.1, 0.25),
         hue: rand(195, 215),
       }));
     };

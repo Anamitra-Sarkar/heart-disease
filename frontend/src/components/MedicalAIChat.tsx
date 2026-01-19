@@ -36,6 +36,12 @@ export default function MedicalAIChat() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
+    if (!showAbout) {
+      textareaRef.current?.focus();
+    }
+  }, [showAbout]);
+
+  useEffect(() => {
     if (!selectedImage) {
       setImagePreview(null);
       return;
@@ -150,6 +156,10 @@ export default function MedicalAIChat() {
         setMessages((prev) => prev.slice(0, -1));
       } finally {
         setLoading(false);
+        // Keep focus on textarea
+        setTimeout(() => {
+          textareaRef.current?.focus();
+        }, 100);
       }
       return;
     }
@@ -182,6 +192,10 @@ export default function MedicalAIChat() {
       setError(e instanceof Error ? e.message : 'Chat failed');
     } finally {
       setLoading(false);
+      // Keep focus on textarea
+      setTimeout(() => {
+        textareaRef.current?.focus();
+      }, 100);
     }
   }
 
@@ -200,6 +214,7 @@ export default function MedicalAIChat() {
       setSelectedImage(file);
       setError(null);
     }
+    textareaRef.current?.focus();
   }
 
   function handlePaste(e: React.ClipboardEvent) {
@@ -292,6 +307,14 @@ export default function MedicalAIChat() {
         <div className={styles.floatingIcon}>🧬</div>
         <div className={styles.floatingIcon}>🌡️</div>
         <div className={styles.floatingIcon}>🩹</div>
+        <div className={styles.floatingIcon}>🧠</div>
+        <div className={styles.floatingIcon}>❤️</div>
+        <div className={styles.floatingIcon}>👨‍⚕️</div>
+        <div className={styles.floatingIcon}>👩‍⚕️</div>
+        <div className={styles.floatingIcon}>🔬</div>
+        <div className={styles.floatingIcon}>🔋</div>
+        <div className={styles.floatingIcon}>📡</div>
+        <div className={styles.floatingIcon}>🏥</div>
       </div>
 
       <div className={styles.topNav}>
@@ -371,6 +394,7 @@ export default function MedicalAIChat() {
                 onClick={() => {
                   setSelectedImage(null);
                   setImagePreview(null);
+                  textareaRef.current?.focus();
                 }}
                 aria-label="Remove image"
               >
