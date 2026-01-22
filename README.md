@@ -8,7 +8,7 @@ colorTo: indigo
 pinned: false
 short_description: FastAPI backend for Cardiac MRI classification.
 ---
-# Cardiac MRI Classifier Web App (Client Deployment)
+# Cardiac MRI Classifier Web App
 
 This repository contains a production-oriented **multi-user web app**:
 
